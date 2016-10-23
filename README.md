@@ -1,4 +1,5 @@
 Simple REST JEE7 startup project with: 
+- Maven pom.xml file 
 - ejb 3.2
 - jax-rs / resteasy
 - liquibase
