@@ -1,0 +1,52 @@
+<databaseChangeLog xmlns='http://www.liquibase.org/xml/ns/dbchangelog'
+  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+  xsi:schemaLocation='http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd'>
+  <changeSet id="1" author="Matteo Restelli">
+    <sql>
+CREATE TABLE USERS (
+  ID         INTEGER     NOT NULL AUTO_INCREMENT,
+  EMAIL      VARCHAR(80) NOT NULL,
+  CREATION_DATE DATETIME    NOT NULL,
+  USERNAME       VARCHAR(60) NOT NULL,
+  NAME       VARCHAR(60) NOT NULL,
+  PASSWORD   VARCHAR(60) NOT NULL,
+  SALT   VARCHAR(255) NOT NULL,
+  SURNAME    VARCHAR(60) NOT NULL,
+  PRIMARY KEY (id)
+)
+  ENGINE = InnoDB;
+
+CREATE TABLE USERS_ROLES (
+  userid INTEGER      NOT NULL,
+  role   VARCHAR(255) NOT NULL,
+  PRIMARY KEY (userid, role)
+)
+  ENGINE = InnoDB;
+
+ALTER TABLE USERS
+ADD CONSTRAINT UK_6dotkott2kjsp8vw4d0m25fb7 UNIQUE (email);
+
+CREATE INDEX IDX_EMAIL ON USERS (email);
+
+ALTER TABLE USERS_ROLES
+ADD CONSTRAINT FK_mu5w27i1qeissk8udkctnsxpu
+FOREIGN KEY (userid)
+REFERENCES USERS (id);
+    </sql>
+  </changeSet>
+  <changeSet id="2" author="Matteo Restelli">
+ 	 <sql>
+  		insert into USERS 
+  		(ID,EMAIL,CREATION_DATE,USERNAME,NAME,PASSWORD,SALT,SURNAME) values 
+  		(1, 'admin@admin.it',NOW(),'admin','admin','/NVt6uvPoPwXIg8BNMqV7w==','ia3/RNHNgJ8PepxyHAU04hqjeOM=','admin');
+  	</sql>
+  </changeSet>
+  <changeSet id="3" author="Matteo Restelli">
+ 	 <sql>
+  		insert into USERS_ROLES
+  		(userid, role) values 
+  		(1, 'ADMIN');
+  	</sql>
+  </changeSet>
+</databaseChangeLog>
