@@ -3,7 +3,7 @@
   <persistence-unit name="restproj">
   	<provider>org.hibernate.ejb.HibernatePersistence</provider>
       <jta-data-source>java:jboss/datasources/restproj</jta-data-source>
-      <class>it.restproj.entities.User</class>
+      <!-- <class>it.restproj.entities.User</class>-->
       <properties>
       	<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
       </properties>

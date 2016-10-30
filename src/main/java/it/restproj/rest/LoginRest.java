@@ -2,6 +2,7 @@ package it.restproj.rest;
 
 import it.restproj.auth.TrackUser;
 import it.restproj.dto.LoggedUserDto;
+import it.restproj.dto.LoginRequestDto;
 import it.restproj.exceptions.jaxRs.UnauthorizedUserException;
 import it.restproj.services.UserService;
 import it.restproj.utils.hashpsw.exceptions.GeneratingHashErrorException;
@@ -35,14 +36,14 @@ public class LoginRest extends BaseRest{
 	
 	@Path("in")
 	@POST
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response login(@FormParam("username")String username,@FormParam("password") String password) throws UnauthorizedUserException {
-		logger.info("Login request for user: %s", username);
+	public Response login(LoginRequestDto loginRequest) throws UnauthorizedUserException {
+		logger.info("Login request for user: %s", loginRequest.getUsername());
 		ResponseBuilder builder;
 		try {
 			// ricava utente, se ok genera token, altrimenti rispondi con forbidden
-			LoggedUserDto user = userService.login(username, password);
+			LoggedUserDto user = userService.login(loginRequest.getUsername(), loginRequest.getPassword());
 			if(user != null) {
 				builder = Response.ok(user, MediaType.APPLICATION_JSON);
 				builder.header("Cache-Control", "no-store");
