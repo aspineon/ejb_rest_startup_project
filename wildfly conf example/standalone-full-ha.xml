@@ -155,24 +155,23 @@
                         <password>sa</password>
                     </security>
                 </datasource>
-                <datasource jndi-name="java:jboss/datasources/restproj" pool-name="restproj" enabled="true" use-java-context="true">
+                <datasource jta="true" jndi-name="java:jboss/datasources/restprojDS" pool-name="restprojDS" enabled="true" use-ccm="true">
                     <connection-url>jdbc:mysql://localhost:3306/restproj</connection-url>
-                    <driver>mysql-connector-java-5.0.8-bin.jar</driver>
+                    <driver-class>com.mysql.jdbc.Driver</driver-class>
+                    <driver>mysql-connector-java-5.1.40-bin.jar_com.mysql.jdbc.Driver_5_1</driver>
                     <security>
-                        <user-name>username</user-name>
-                        <password>password</password>
+                        <user-name>root</user-name>
+                        <password>reste1985</password>
                     </security>
-                    <statement>
-                        <prepared-statement-cache-size>100</prepared-statement-cache-size>
-                        <share-prepared-statements>true</share-prepared-statements>
-                    </statement>
+                    <validation>
+                        <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker"/>
+                        <background-validation>true</background-validation>
+                        <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter"/>
+                    </validation>
                 </datasource>
                 <drivers>
                     <driver name="h2" module="com.h2database.h2">
                         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-                    </driver>
-                    <driver name="mysql-connector-java-5.0.8-bin.jar" module="com.mysql">
-                        <driver-class>com.mysql.jdbc.Driver</driver-class>
                     </driver>
                 </drivers>
             </datasources>
@@ -595,4 +594,9 @@
         </outbound-socket-binding>
     </socket-binding-group>
 
+    <deployments>
+        <deployment name="mysql_connector" runtime-name="mysql-connector-java-5.1.40-bin.jar">
+            <content sha1="7c6a4b402a1f6106ffaf8a957004f30f57d9bdc7"/>
+        </deployment>
+    </deployments>
 </server>

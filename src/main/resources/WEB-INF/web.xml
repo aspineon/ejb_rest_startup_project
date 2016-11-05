@@ -9,7 +9,7 @@
 
 <context-param>
 	<param-name>liquibase.datasource</param-name>
-	<param-value>java:jboss/datasources/restproj</param-value>
+	<param-value>java:jboss/datasources/restprojDS</param-value>
 </context-param>
 
 <listener>
