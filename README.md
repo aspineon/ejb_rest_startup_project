@@ -7,9 +7,8 @@ Simple REST JEE7 startup project with:
 - infinispan 8.0.1.Final
 - jpa 2 / hibernate 5.0.2.Final
 - Json Web Token. Some REST endpoints (like logout endpoint) will require an access token. This is not the best usage for JWT because it requires to store the JWT in the backend for future blacklisting feature. If you want you can substitute with simple cookies mechanism. JWT built using jose4j 0.4.4
-- User login, logout, signup features already implemented.
+- User login, logout rest endpoints already implemented.
 - Liquibase scripts for user tables creation (tested with MySql)
 - Wildfly 9.0.1 full-ha example config file
 
 
-Requires mysql connector module configuration in wildfly
