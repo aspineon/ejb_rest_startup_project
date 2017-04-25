@@ -1,0 +1,31 @@
+<databaseChangeLog xmlns='http://www.liquibase.org/xml/ns/dbchangelog'
+  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+  xsi:schemaLocation='http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd'>
+  <changeSet id="1" author="Matteo Restelli">
+    <sql>
+    	CREATE TABLE CUSTOMER (
+  			ID         VARCHAR(6)     NOT NULL,
+  			CREATION_DATE DATETIME    NOT NULL,
+  			NAME       VARCHAR(35),
+  			NAME_EXT VARCHAR(35),
+  			EMAIL    VARCHAR(75), 
+  			PIVA	VARCHAR(11),
+  			COD_FISC	VARCHAR(16),
+  			ADDRESS VARCHAR(35),
+  			CAP	VARCHAR(9),
+  			CITY VARCHAR(25),
+  			PROVINCE VARCHAR(2),
+  			TELEPHONE VARCHAR(20),
+  			AGENT_ID VARCHAR(3),
+  			PRIMARY KEY (id)
+		)
+  		ENGINE = InnoDB;
+  		
+  		ALTER TABLE CUSTOMER
+		ADD CONSTRAINT 
+		FOREIGN KEY (AGENT_ID)
+		REFERENCES AGENT (ID);
+    </sql>
+  </changeSet>
+</databaseChangeLog>

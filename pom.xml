@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>it.reste</groupId>
-  <artifactId>restproj</artifactId>
+  <groupId>eu.limontacolori</groupId>
+  <artifactId>limca_pvt</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <dependencies>
@@ -45,6 +45,12 @@
         <scope>provided</scope>
     </dependency>
     <dependency>
+    	<groupId>org.jboss.resteasy</groupId>
+		<artifactId>resteasy-client</artifactId>
+		<version>3.0.18.Final</version>
+		<scope>provided</scope>
+    </dependency>
+    <dependency>
         <groupId>org.jboss.resteasy</groupId>
         <artifactId>resteasy-validator-provider-11</artifactId>
         <version>3.0.18.Final</version>
@@ -56,14 +62,29 @@
 		<version>1.0.1.Final</version>
 	  </dependency>
 	  <dependency>
-		<groupId>org.hibernate.ogm</groupId>
-		<artifactId>hibernate-ogm-core</artifactId>
-		<version>4.2.0.Final</version>
-	  </dependency>
-	  <dependency>
 		<groupId>org.hibernate</groupId>
 		<artifactId>hibernate-core</artifactId>
-		<version>5.0.2.Final</version>
+		<version>5.1.0.Final</version>
+	  </dependency>
+	  <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.2.4.Final</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- for JPA, use hibernate-entitymanager instead of hibernate-core -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>5.1.0.Final</version>
+            <scope>provided</scope>
+        </dependency>
+	  <dependency>
+   		<groupId>dom4j</groupId>
+   		<artifactId>dom4j</artifactId>
+   		<version>1.6.1</version>
+   		<scope>provided</scope>
 	  </dependency>
 	  <dependency>
 		<groupId>org.infinispan</groupId>
@@ -106,10 +127,11 @@
     	<version>3.2.0.ga</version>
 	  </dependency>
 	  <dependency>
-  			<groupId>org.influxdb</groupId>
-  			<artifactId>influxdb-java</artifactId>
-  			<version>2.4</version>
-		</dependency>
+	    <groupId>org.apache.httpcomponents</groupId>
+	    <artifactId>httpclient</artifactId>
+	    <version>4.3.4</version>
+	    <scope>compile</scope>
+	  </dependency>
   </dependencies>
   <build>
         <plugins>
@@ -127,7 +149,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
-                    <warName>restproj</warName>
+                    <warName>limca_pvt</warName>
                     <webXml>src\main\resources\WEB-INF\web.xml</webXml>
                 </configuration>
                 <version>2.1.1</version>

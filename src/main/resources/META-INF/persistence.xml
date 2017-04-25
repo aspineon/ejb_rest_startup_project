@@ -2,10 +2,11 @@
 <persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
   <persistence-unit name="restproj">
   	<provider>org.hibernate.ejb.HibernatePersistence</provider>
-      <jta-data-source>java:jboss/datasources/restprojDS</jta-data-source>
+      <jta-data-source>java:jboss/datasources/limcaPrivate</jta-data-source>
       <!-- <class>it.restproj.entities.User</class>-->
       <properties>
-      	<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
+      	<!-- <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />  -->
+      	<property name="hibernate.show_sql" value="true" />
       </properties>
   </persistence-unit>
 </persistence>

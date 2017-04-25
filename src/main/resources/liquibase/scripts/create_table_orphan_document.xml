@@ -1,0 +1,20 @@
+<databaseChangeLog xmlns='http://www.liquibase.org/xml/ns/dbchangelog'
+  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+  xsi:schemaLocation='http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd'>
+  <changeSet id="1" author="Matteo Restelli">
+    <sql>
+    	CREATE TABLE ORPHAN_DOCUMENT (
+  			DOC_TYPE         VARCHAR(2)     NOT NULL,
+  			DOC_YEAR		VARCHAR(8) NOT NULL,
+  			DOC_NUM		VARCHAR(6) NOT NULL,
+  			DOC_DATE	DATETIME NOT NULL,
+  			CREATION_DATE DATETIME    NOT NULL,
+  			SOC VARCHAR(100) NOT NULL,
+  			CUSTOMER_ID    VARCHAR(255) NOT NULL,
+  			PRIMARY KEY (DOC_TYPE,DOC_YEAR,DOC_NUM)
+		)
+  		ENGINE = InnoDB; 		
+    </sql>
+  </changeSet>
+</databaseChangeLog>
