@@ -37,7 +37,6 @@ import eu.limontacolori.privatearea.rest.dto.DocumentDto;
 import eu.limontacolori.privatearea.rest.dto.ImportDocumentPdfDto;
 import eu.limontacolori.privatearea.rest.dto.ListDocumentsReqDto;
 import eu.limontacolori.privatearea.rest.dto.PaginationDto;
-import eu.limontacolori.privatearea.rest.dto.PaginationReqDto;
 import eu.limontacolori.privatearea.services.CustomerService;
 import eu.limontacolori.privatearea.services.DocumentService;
 import eu.limontacolori.privatearea.services.importers.ImportDocumentService;
