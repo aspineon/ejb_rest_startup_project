@@ -137,6 +137,7 @@ public class JwtManager {
 		    userLogged.updateUser(Integer.parseInt(jwtClaims.getSubject()), jwtClaims.getStringClaimValue("username"), 
 		    		jwtClaims.getStringClaimValue("name"), jwtClaims.getStringClaimValue("surname"),
 		    		jwtClaims.getStringClaimValue("email"), rolesSet);
+		    userLogged.setAccessToken(token);
 		    return userLogged;
 		}
 		catch (InvalidJwtException e)

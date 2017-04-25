@@ -1,4 +1,4 @@
-frontend/*
+frontend/sb_admin/node_modules/*
 target/*
 .DS_Store
 .classpath
